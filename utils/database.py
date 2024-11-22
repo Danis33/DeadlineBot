@@ -20,8 +20,15 @@ def add_task(user_id, task_text):
     conn = sqlite3.connect("database/bot.db")
     cursor = conn.cursor()
 
-    cursor.execute('''
-    INSERT INTO task(user_id, task_text) VALUE(?, ?)''', (user_id, task_text))
-
+    cursor.execute('''INSERT INTO task(user_id, task_text) VALUE(?, ?)''', (user_id, task_text))
     conn.commit()
     conn.close()
+
+
+def get_tasks(user_id):
+    conn = sqlite3.connect("database/bot.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, task_text FROM task WHERE user_id = ?", (user_id,))
+    tasks = cursor.fetchall()
+    conn.close()
+    return tasks

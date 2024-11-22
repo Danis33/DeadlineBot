@@ -6,7 +6,7 @@ def register_handler(bot):
     async def send_welcome(message):
         markup = InlineKeyboardMarkup()
         button1 = InlineKeyboardButton("Cоздание задачи", callback_data="add_task")
-        button2 = InlineKeyboardButton("Посмотреть задачи", callback_data="View")
+        button2 = InlineKeyboardButton("Посмотреть задачи", callback_data="view")
         button3 = InlineKeyboardButton("Напоминание", callback_data="reminder")
         button4 = InlineKeyboardButton("Редактировать", callback_data="edit")
         button5 = InlineKeyboardButton("Удалить", callback_data="delete")

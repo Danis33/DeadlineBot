@@ -3,12 +3,13 @@ import aiohttp
 
 from telebot.async_telebot import AsyncTeleBot
 from config import BOT_TOKEN
-from handlers import start_handler, add_handler
+from handlers import start_handler, add_handler, view_task_handler
 
 bot = AsyncTeleBot(BOT_TOKEN)
 
 start_handler.register_handler(bot)
 add_handler.register_handlers(bot)
+view_task_handler.views_handlers(bot)
 
 
 async def main():
